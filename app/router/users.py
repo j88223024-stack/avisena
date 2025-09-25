@@ -18,14 +18,13 @@ def create_user(
     db: Session = Depends(get_db)
 ):
     try:
-     
-        if (user.id_rol == 1 or user.id_rol == 2):
-            modulo = 2
-        else:
-            modulo = 1
+        # if (user.id_rol == 1 or user.id_rol == 2):
+        #     modulo = 2
+        # else:
+        #     modulo = 1
         
-        if not verify_permissions(db, id_rol, modulo, 'insertar'):
-            raise HTTPException(status_code=401, detail="usuario no tiene permiso")
+        # if not verify_permissions(db, id_rol, modulo, 'insertar'):
+        #     raise HTTPException(status_code=401, detail="usuario no tiene permiso")
             
         crud_users.create_user(db, user)
         return {"message": "Usuario creado correctamente"}
