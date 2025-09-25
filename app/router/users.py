@@ -15,8 +15,8 @@ modulo = 1
 @router.post("/crear", status_code=status.HTTP_201_CREATED)
 def create_user(
     user: UserCreate, 
-    db: Session = Depends(get_db)
-    user
+    db: Session = Depends(get_db),
+    user_token: UserOut = Depends(get_current_user)
 ):
     try:
         id_rol = user_token.id_rol
