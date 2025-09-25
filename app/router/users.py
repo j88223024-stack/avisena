@@ -15,13 +15,10 @@ modulo = 1
 @router.post("/crear", status_code=status.HTTP_201_CREATED)
 def create_user(
     user: UserCreate, 
-    db: Session = Depends(get_db),
-    user_token: UserOut = Depends(get_current_user)
-
+    db: Session = Depends(get_db)
 ):
     try:
-        id_rol = user_token.id_rol
-
+     
         if (user.id_rol == 1 or user.id_rol == 2):
             modulo = 2
         else:
